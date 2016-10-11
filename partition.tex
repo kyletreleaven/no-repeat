@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{makecmds}
+
+\makecommand{\mutual}{\Longleftrightarrow}
+\makecommand{\integers}{{\mathbb Z}}
+
+\begin{document}
+
+\section*{}
+
+The problem is as follows:
+
+Find the minimum number $k$ of piles of $N > 0$ items, so that no pile obtains more than $n > 0$ items.
+%
+
+Another way to phrase the problem is:
+
+Find $\min k \in \integers$ such that $\left\lceil N / k \right\rceil \leq n$, where $N, n > 0$.
+
+Without the ceiling function, the exercise is completely trivial, i.e., find $\min k \in {\mathbb Z}$ such that $N / k \leq n$,
+for which the solution is obviously $k = \left\lceil N / n \right\rceil$.
+%
+The original problem is not fundamentally harder, but technically annoying.
+There are also occasions when the second more general form should be solved where $N, n > 0$ need not be integers.
+We will consider this case.
+
+Actually, for convenience we will lift the analysis to an even more general problem:
+
+Find the minimum $x \in \integers$ such that $\left\lceil f(x) \right\rceil \leq \gamma$, where
+$f$ is any positive, strictly decreasing function with an inverse $f^{-1}$ on the domain of interest, and
+$\gamma > 0$.
+
+We use the fact that $\lceil x \rceil \leq y \mutual x \leq \lfloor y \rfloor$ to equate the prior problem to:
+find the minimum $x \in \integers$ such that $f(x) \leq \lfloor \gamma \rfloor$.
+Due to the monotonicity of $f$, this condition is equivalent to $x \geq f^{-1}\left( \lfloor \gamma \rfloor \right)$.
+Obviously, the smallest integer satisfying this condition is
+\[
+	x^* = \left\lceil f^{-1}\left( \lfloor \gamma \rfloor \right) \right\rceil.
+\]
+
+Substituting the appropriate specifics back into this equation, we obtain
+\[
+	x^* = \left\lceil \frac{ N }{ \lfloor n \rfloor } \right\rceil.
+\]
+
+\end{document}
